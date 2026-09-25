@@ -7,19 +7,32 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "lint:fix": "eslint --fix"
+    "lint:fix": "eslint --fix",
+    "dev:vinext": "vinext dev --port 3001",
+    "build:vinext": "vinext build",
+    "start:vinext": "wrangler dev --config dist/server/wrangler.json",
+    "deploy:vinext": "vinext-cloudflare deploy --config dist/server/wrangler.json"
   },
   "dependencies": {
+    "@vinext/cloudflare": "^1.0.0-beta.10",
     "autoprefixer": "10.4.14",
     "next": "16.3.5",
     "postcss": "8.4.24",
     "react": "19.3.0",
     "react-dom": "19.3.0",
     "react-icons": "^4.9.0",
-    "tailwindcss": "3.3.2"
+    "react-server-dom-webpack": "^19.3.0",
+    "tailwindcss": "3.3.2",
+    "vinext": "^1.0.0-beta.12"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.60.1",
+    "@vitejs/plugin-react": "^6.1.1",
+    "@vitejs/plugin-rsc": "^0.5.35",
     "eslint": "^9.39.5",
-    "eslint-config-next": "16.3.5"
-  }
+    "eslint-config-next": "16.3.5",
+    "vite": "^8.3.1",
+    "wrangler": "^4.140.0"
+  },
+  "type": "module"
 }
