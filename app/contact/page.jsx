@@ -183,7 +183,7 @@ const FindUs = () => (
               <div className="group relative aspect-[4/3] w-full overflow-hidden border border-ink/12 sm:aspect-[16/10]">
                 <iframe
                   title="Map showing Church Street Solicitors at 12 Church Street, London E15 3HX"
-                  src="https://maps.google.com/maps?q=12%20Church%20Street%2C%20London%20E15%203HX&t=m&z=17&output=embed&iwloc=near"
+                  src="https://maps.google.com/maps?q=51.535865,0.008003&z=17&output=embed"
                   className="h-full w-full grayscale transition duration-500 group-hover:grayscale-0 group-focus-within:grayscale-0 motion-reduce:transition-none"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
