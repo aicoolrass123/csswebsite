@@ -119,7 +119,7 @@ const Heading = () => {
                 scrolled ? "text-[18px] md:text-[20px]" : "text-[18px] md:text-[30px]"
               }`}
             >
-              Church Street Solicitors
+              Church Street <span className="block md:inline">Solicitors</span>
             </span>
             <span
               className={`mt-1 hidden text-[9.5px] uppercase tracking-folio transition-colors duration-500 sm:block ${meta}`}
