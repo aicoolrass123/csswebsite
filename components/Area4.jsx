@@ -1,25 +1,39 @@
-import Link from "next/link";
 import React from "react";
 import LawareaCard from "./LawareaCard";
+import SectionHead from "./SectionHead";
+import Reveal from "./Reveal";
+import { practiceAreas } from "@/Data";
 
-const Area4 = () => {
-  //GrUserManager FaUsers MdFamilyRestroom FaHouseChimney
+const Area4 = ({ href = "/contact" }) => {
   return (
-    <section >
-      <div className="  relative container max-w-screen-xl mx-auto flex flex-col gap-7 justify-center items-center">
-        <div className="text-center">
-          <h5 className="text-red-500">How Can We Help You</h5>
-          <p className="text-3xl py-5 ">Area Of Law Practice</p>
-          <div className="w-[50%] h-[2px] bg-golden translate-x-[60px]"></div>
-        </div>
-        <div className=" px-7 md:px-0 py-16 flex flex-col md:flex-row gap-7 flex-wrap">
-       <LawareaCard/>
-       <LawareaCard/>
-       <LawareaCard/>
-       <LawareaCard/>
-       <LawareaCard/>
-       <LawareaCard/>
-       </div>
+    <section aria-label="Areas of practice" className="bg-parchment py-20 md:py-28">
+      <div className="mx-auto max-w-content px-5 md:px-8">
+        <Reveal>
+          <SectionHead
+            runningHead="The register"
+            aside={`${practiceAreas.length} disciplines · Fees in writing`}
+            title="Six disciplines, one standard: your side"
+            lead="From Home Office applications to the Crown Court, from tenancy disputes to tribunal claims — you speak directly to the solicitor handling your matter."
+          />
+        </Reveal>
+
+        <Reveal delay={0.08}>
+          <div className="mt-12 border-b border-ink/12 md:mt-14">
+            {practiceAreas.map((area, i) => (
+              <LawareaCard
+                key={area.name}
+                index={i}
+                title={area.name}
+                text={area.blurb}
+                href={href}
+              />
+            ))}
+          </div>
+        </Reveal>
+
+        <p className="mt-6 text-[13px] uppercase tracking-caps text-slatebody">
+          Not sure which discipline is yours? Tell us what happened.
+        </p>
       </div>
     </section>
   );

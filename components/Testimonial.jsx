@@ -1,123 +1,77 @@
 "use client";
 
 import { useState } from "react";
-import { FaQuoteLeft } from "react-icons/fa";
 
+const testimonials = [
+  {
+    quote:
+      "They dealt with my case in a professional manner. Very efficient, helpful and understanding. I would have no hesitation in using them again or recommending them to friends.",
+    name: "Femi Sotonwa",
+    detail: "South Ockendon, Essex",
+  },
+  {
+    quote:
+      "I do not know how to thank you enough — I am elated. You are doing a great job and only the people you work with can tell how good you are. God bless this firm abundantly.",
+    name: "Lisa",
+    detail: "Immigration client",
+  },
+  {
+    quote:
+      "They knew what was in my heart and fought for it. They kept me informed, explained every step, and secured the outcome my family needed. A billion thank yous.",
+    name: "Lisa",
+    detail: "London — citizenship matter",
+  },
+];
+
+/* The letters page: three extracts from client letters, published with
+   permission, turned by hand. */
 const Testimonial = () => {
-  const [showvalue, setShowvalue] = useState(0);
-  const Handleclick = (value) => {
-    setShowvalue(value);
-  };
+  const [index, setIndex] = useState(0);
+  const letter = testimonials[index];
+
   return (
-    <div className="flex-1 gap-0 flex flex-col">
-      <div className="min-w-full min-h-full  flex  overflow-x-hidden  ">
-        <div
-          className={`flex flex-col transition-[transform] ease-in-out duration-500 justify-center gap-7 items-start min-w-full min-h-full ${
-            showvalue == 0 ? "translate-x-[0%] opacity-100" : "translate-x-[300%] opacity-0 "
-          }`}
+    <div className="flex h-full flex-col">
+      <figure className="flex flex-1 flex-col">
+        <blockquote
+          key={index}
+          className="letter-in hang-quote font-display text-[clamp(1.5rem,2.5vw,2.15rem)] font-normal italic leading-[1.32] tracking-display text-ink"
         >
-          {" "}
-          <div>
-            <h5 className="capitalize text-xl">what people say</h5>
-            <h1 className="text-secondary text-4xl font-extrabold capitalize pt-3">
-              {" "}
-              client testimonial
-            </h1>
-          </div>
-          <div className="flex justify-start items-start gap-5">
-            <div className="flex justify-start items-start text-3xl text-golden">
-              <FaQuoteLeft />
-            </div>{" "}
-            <p className="w-3/4">
-              I was introduced to Church solicitors in 2018. They dealt with my
-              case in a professional manner. I find them to be very efficient,
-              helpful, understanding and very professional. I would have no
-              hesitation in using their services again or recommending them to
-              friends.
-            </p>
-          </div>
-          <div className="mt-7">
-            <h1 className="text-3xl text-golden ">Femi SOTONWA</h1>
-            <p className="text-secondary pt-3">South Ockendon, Essex</p>
-          </div>
-        </div>
-        <div
-          className={` flex flex-col transition-[transform] ease-in-out duration-500 justify-center gap-7 items-start min-w-full min-h-full  ${
-            showvalue == 100 ? "translate-x-[-100%] opacity-100" : "opacity-0"
-          }`}
-        >
-          <div>
-            <h5 className="capitalize text-xl">what people say</h5>
-            <h1 className="text-secondary text-4xl font-extrabold capitalize pt-3">
-              {" "}
-              client testimonial
-            </h1>
-          </div>
-          <div className="flex justify-start items-start gap-5">
-            <div className="flex justify-start items-start text-3xl text-golden">
-              <FaQuoteLeft />
-            </div>{" "}
-            <p className="w-3/4">
-              You know what I do not know how to thank you enough am elated. A
-              billion thank you thank you and thank you. You are doing a great
-              job and only the people you work with can tell how good you and
-              God will continue to bless this firm abundantly. I will come and
-              see you for the girl’s citizenships but will ring you before I
-              come. Thank you again.
-            </p>
-          </div>
-          <div className="mt-7">
-            <h1 className="text-3xl text-golden ">Lisa</h1>
-            <p className="text-secondary pt-3">Immigration Client</p>
-          </div>
-        </div>
-        <div
-          className={` flex flex-col  justify-center gap-7 transition-[transform] ease-in-out duration-500 items-start min-w-full min-h-full  ${
-            showvalue == 200 ? "translate-x-[-200%] opacity-100" : "opacity-0"
-          }`}
-        >
-          <div>
-            <h5 className="capitalize text-xl">what people say</h5>
-            <h1 className="text-secondary text-4xl font-extrabold capitalize pt-3">
-              {" "}
-              client testimonial
-            </h1>
-          </div>
-          <div className="flex justify-start items-start gap-5">
-            <div className="flex justify-start items-start text-3xl text-golden">
-              <FaQuoteLeft />
-            </div>{" "}
-            <p className="w-3/4">
-              You know what I don’t know how to thank you enough am elated and
-              praying to God Almighty that he knows what you have in your heart
-              desires and HE shall grand you that and to your offsprings. I will
-              deposit your balance of £200 and will text you to let you know
-              once I done it. A billion thank you thank you and thank you. You
-              are doing a great job and only the people you work with can tell
-              how good you and God will continue to bless this firm abundantly.
-              I will come and see you for the girls citizenships but will ring
-              you before I come. Thank you again.
-            </p>
-          </div>
-          <div className="mt-7">
-            <h1 className="text-3xl text-golden ">Lisa</h1>
-            <p className="text-secondary pt-3">London</p>
-          </div>
-        </div>
-      </div>
-      <div className=" translate-y-[-100px] md:translate-y-[-30px] md:mt-0 self-end flex justify-center items-center gap-2">
-        <button
-          onClick={(e) => Handleclick(0)}
-          className={`h-3 w-3 ${showvalue==0?'bg-slate-600':'bg-slate-300'}  rounded-full`}
-        ></button>
-        <button
-          onClick={(e) => Handleclick(100)}
-          className={`h-3 w-3 rounded-full ${showvalue==100?'bg-slate-600':'bg-slate-300'}`}
-        ></button>
-        <button
-          onClick={(e) => Handleclick(200)}
-          className={`h-3 w-3 rounded-full ${showvalue==200?'bg-slate-600':'bg-slate-300'}`}
-        ></button>
+          “{letter.quote}”
+        </blockquote>
+
+        <figcaption className="mt-auto flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 border-t border-ink/12 pt-5">
+          <p className="font-display text-[18px] tracking-display text-ink">
+            {letter.name}
+            <span className="ml-3 text-[11px] uppercase tracking-caps text-slatebody">
+              {letter.detail}
+            </span>
+          </p>
+          <p className="text-[10px] uppercase tracking-folio text-slatebody">
+            Extracts from client letters
+          </p>
+        </figcaption>
+      </figure>
+
+      <div className="mt-6 flex items-center gap-1.5">
+        {testimonials.map((item, i) => (
+          <button
+            key={item.quote}
+            type="button"
+            onClick={() => setIndex(i)}
+            aria-label={`Show letter ${i + 1} of ${testimonials.length}`}
+            aria-current={index === i ? "true" : undefined}
+            className="-my-4 flex h-11 items-center px-1"
+          >
+            <span
+              className={`h-[3px] transition-all duration-500 ${
+                index === i ? "w-12 bg-claret" : "w-6 bg-ink/40 hover:bg-ink/70"
+              }`}
+            />
+          </button>
+        ))}
+        <span className="tnum ml-auto text-[10px] uppercase tracking-folio text-slatebody">
+          {String(index + 1).padStart(2, "0")} / {String(testimonials.length).padStart(2, "0")}
+        </span>
       </div>
     </div>
   );

@@ -1,47 +1,534 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
-.swiper-container {
-    width: 100%;
-    height: 400px;
-    color: white;
-  }
-  
-  .swiper-slide {
-    text-align: center;
-    font-size: 30px;
-    background-color: #ccc;
-    color: white;
-    background-image: unset;
- 
-    
-  }
-  
-  .swiper-button-next,
-  .swiper-button-prev {
-    position: absolute;
-    top: 50%;
-    width: 50px;
-    height: 50px;
-    margin-top: -15px;
-    background-color: transparent;
-    color: white;
 
-    padding-inline: 30px;
-    padding-block: 30px;
-    border: 1px solid gainsboro;
-    background-image: unset;
-    
-   
+/* ------------------------------------------------------------------
+   Church Street Solicitors — a legal broadsheet.
+   Ink is the night edition, parchment is the paper, claret is the ink
+   that is still wet. Rules, folios and plates do the work that borders
+   and cards usually do.
+   ------------------------------------------------------------------ */
+
+:root {
+  --ink: #0b1120;
+  --ink-deep: #070b14;
+  --ink-soft: #141c2e;
+  --claret: #7b2130;
+  --claret-deep: #5a1622;
+  --claret-bright: #9b3348;
+  --claret-soft: #f2e2e5;
+  --paper: #fbfaf7;
+  --bone: #f6f5f1;
+  --linen: #e6e3db;
+  --hairline: rgba(11, 17, 32, 0.14);
+  --hairline-strong: rgba(11, 17, 32, 0.34);
+  --hairline-inverse: rgba(246, 245, 241, 0.22);
+  --ease-sheet: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-color: #7b2130 #e6e3db;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1, "liga" 1;
+}
+
+::selection {
+  background: #7b2130;
+  color: #f6f5f1;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #7b2130;
+  outline-offset: 3px;
+}
+.dark-ground a:focus-visible,
+.dark-ground button:focus-visible,
+.dark-ground input:focus-visible,
+.dark-ground textarea:focus-visible {
+  outline-color: #f6f5f1;
+}
+
+input,
+textarea,
+select {
+  caret-color: #7b2130;
+}
+.dark-ground input,
+.dark-ground textarea {
+  caret-color: var(--claret-bright);
+}
+
+/* ---------- Editorial furniture ---------- */
+
+.rule {
+  display: block;
+  height: 2px;
+  width: 2.75rem;
+  background: var(--claret);
+}
+
+.rule-double {
+  border-top: 3px solid var(--hairline-strong);
+  border-bottom: 1px solid var(--hairline);
+  height: 8px;
+}
+.rule-double-inverse {
+  border-top: 3px solid rgba(246, 245, 241, 0.42);
+  border-bottom: 1px solid var(--hairline-inverse);
+  height: 8px;
+}
+
+.tnum {
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* Display lines break evenly rather than leaving a widow on the last line.
+   Browsers without text-wrap: balance fall back to normal wrapping. */
+.balance {
+  text-wrap: balance;
+}
+
+.dropcap::first-letter {
+  float: left;
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 500;
+  font-size: 3.55em;
+  line-height: 0.76;
+  padding: 0.08em 0.14em 0 0;
+  color: var(--ink);
+}
+
+.hang-quote {
+  text-indent: -0.46em;
+}
+
+/* ---------- Plates: two-colour printing ----------
+   The duotone is baked into public/plates/ — ink through claret to paper,
+   the claret plate a hair out of register. What remains here is the screen,
+   which has to be drawn at the size it is placed at to stay crisp.
+   ------------------------------------------------------------------ */
+
+.plate,
+.plate-cut {
+  position: relative;
+  display: block;
+  isolation: isolate;
+}
+
+.plate {
+  overflow: hidden;
+  background: var(--ink-deep);
+}
+
+.plate__img,
+.plate-cut__img {
+  filter: saturate(1.04) contrast(1.02);
+}
+
+/* The halftone screen: two passes, a hair out of true, so the overlap
+   makes a third value neither ink owns. */
+.plate__screen {
+  position: absolute;
+  inset: -2px;
+  z-index: 2;
+  background-size: 3px 3px;
+  pointer-events: none;
+}
+.plate__screen--ink {
+  background-image: radial-gradient(rgba(7, 11, 20, 0.95) 0.7px, transparent 0.8px);
+  mix-blend-mode: multiply;
+  opacity: 0.34;
+}
+.plate__screen--claret {
+  background-image: radial-gradient(
+    rgba(155, 51, 72, 0.95) 0.7px,
+    transparent 0.8px
+  );
+  background-position: 1.5px 1.5px;
+  mix-blend-mode: multiply;
+  opacity: 0.34;
+}
+
+.plate-frame {
+  box-shadow: inset 0 0 0 1px rgba(246, 245, 241, 0.16);
+}
+.plate-frame-ink {
+  box-shadow: inset 0 0 0 1px rgba(11, 17, 32, 0.18);
+}
+
+/* ------------------------------------------------------------------
+   The folded edition.
+   One sheet, four faces, turned by hand. The band is the paper's
+   standing head; the rail is its folio line; the facts never leave the
+   foot of the sheet. Without JavaScript the faces simply stack, which
+   is the same edition, read downwards.
+   ------------------------------------------------------------------ */
+
+.sheet {
+  background: var(--ink);
+  color: var(--bone);
+  /* the fixed masthead clears the top of the sheet */
+  padding-top: 4.25rem;
+}
+@media (min-width: 768px) {
+  .sheet {
+    padding-top: 5.25rem;
   }
-  
-  .ll{background: linear-gradient(to right, rgba(21, 26, 48, 0.79) 100%, rgba(21, 26, 48, 0.79) 100%, rgba(21, 26, 48, 0.07) 100%, rgba(21, 26, 48, 0) 100%);
-    background-color: rgba(0, 0, 0, 0);
-    background-position-x: 0%;
-    background-position-y: 0%;
-    background-repeat: repeat;
-    background-attachment: scroll;
-    background-image: linear-gradient(to right, rgba(21, 26, 48, 0.79) 100%, rgba(21, 26, 48, 0.79) 100%, rgba(21, 26, 48, 0.07) 100%, rgba(21, 26, 48, 0) 100%);
-    background-size: auto;
-    background-origin: padding-box;
-    background-clip: border-box;}
+}
+
+.sheet-band {
+  border-bottom: 1px solid rgba(246, 245, 241, 0.14);
+}
+
+/* The whole of the no-JavaScript edition: four pages, stacked, read
+   downwards. Everything below is present and reachable either way. */
+.sheet-stage {
+  position: relative;
+}
+
+.sheet-track {
+  display: flex;
+  flex-direction: column;
+}
+
+.sheet-face {
+  position: relative;
+  min-width: 0;
+  scroll-margin-top: 6rem;
+}
+.sheet-face + .sheet-face {
+  border-top: 1px solid rgba(246, 245, 241, 0.14);
+}
+
+/* Staged: on a wide screen, with JavaScript, the sheet is a single page
+   turned by hand rather than four pages read downwards. */
+@media (min-width: 1024px) {
+  html.js .sheet-stage {
+    overflow: hidden;
+    min-height: clamp(33rem, calc(100svh - 15.5rem), 54rem);
+  }
+  html.js .sheet-track {
+    flex-direction: row;
+    align-items: stretch;
+    min-height: inherit;
+  }
+  html.js .sheet-face {
+    flex: 0 0 100%;
+    min-width: 100%;
+  }
+  html.js .sheet-face + .sheet-face {
+    border-top: 0;
+  }
+  html.js .fold {
+    display: flex;
+  }
+}
+
+@keyframes face-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* The turn is the authored moment: a face settles as it comes round. */
+  @media (min-width: 1024px) {
+    html.js .sheet-track {
+      transition: transform 0.95s var(--ease-sheet);
+    }
+    html.js .sheet-track[data-dragging="true"] {
+      transition: none;
+    }
+    html.js .sheet-face[data-active="true"] .face-shell {
+      animation: face-rise 0.85s var(--ease-sheet) both;
+      animation-delay: 0.16s;
+    }
+  }
+}
+
+/* The fold: the crease at the right edge of every face and the thumb tab
+   printed on it. In print the tab is how a reader finds the next page. */
+.fold {
+  position: absolute;
+  inset-block: 0;
+  right: 0;
+  width: 3.25rem;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  border-left: 1px solid rgba(246, 245, 241, 0.14);
+  background: linear-gradient(
+    90deg,
+    rgba(7, 11, 20, 0) 0%,
+    rgba(7, 11, 20, 0.55) 42%,
+    rgba(7, 11, 20, 0.85) 100%
+  );
+}
+.fold__tab {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  white-space: nowrap;
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(246, 245, 241, 0.5);
+  transition: color 0.35s ease, transform 0.5s var(--ease-sheet);
+}
+.fold:hover .fold__tab,
+.fold:focus-visible .fold__tab {
+  color: var(--bone);
+  transform: translateY(-6px);
+}
+.fold--last {
+  background: linear-gradient(
+    90deg,
+    rgba(7, 11, 20, 0) 0%,
+    rgba(7, 11, 20, 0.4) 100%
+  );
+}
+
+/* The folio rule: one drawn line travelling the width of the sheet, not
+   four detached hairlines. */
+.sheet-rail {
+  position: relative;
+  border-top: 1px solid rgba(246, 245, 241, 0.14);
+}
+.sheet-rule {
+  position: absolute;
+  left: 0;
+  top: -1px;
+  height: 2px;
+  width: 100%;
+  background: var(--claret-bright);
+  transform-origin: left center;
+}
+@media (prefers-reduced-motion: no-preference) {
+  html.js .sheet-rule {
+    transition: transform 0.95s var(--ease-sheet);
+  }
+}
+
+.folio-tab {
+  position: relative;
+  display: block;
+  text-align: left;
+  transition: color 0.3s ease;
+}
+.folio-tab::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.55rem;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--ease-sheet);
+}
+.folio-tab:hover::after,
+.folio-tab:focus-visible::after,
+.folio-tab[aria-current="true"]::after {
+  transform: scaleX(1);
+}
+
+/* The wire: standing information running as a tape under the masthead. */
+@keyframes wire-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.wire::before,
+.wire::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 3rem;
+  z-index: 2;
+  pointer-events: none;
+}
+.wire::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--ink) 8%, rgba(11, 17, 32, 0));
+}
+.wire::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--ink) 8%, rgba(11, 17, 32, 0));
+}
+.wire-track {
+  display: flex;
+  width: max-content;
+  animation: wire-scroll 64s linear infinite;
+}
+.wire:hover .wire-track,
+.wire:focus-within .wire-track {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .wire-track {
+    animation: none;
+  }
+}
+
+/* ---------- The register: rows that take the ink ---------- */
+
+.register-row {
+  position: relative;
+  isolation: isolate;
+  transition: color 0.35s ease, border-color 0.35s ease;
+}
+.register-row::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--ink);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s var(--ease-sheet);
+}
+.register-row:hover::after,
+.register-row:focus-within::after,
+.register-row:focus-visible::after {
+  transform: scaleX(1);
+}
+.register-row:hover,
+.register-row:focus-within {
+  border-color: var(--ink);
+}
+.register-index,
+.register-title,
+.register-text,
+.register-arrow {
+  transition: color 0.35s ease, transform 0.5s var(--ease-sheet);
+}
+.register-row:hover .register-index,
+.register-row:focus-within .register-index {
+  color: var(--claret-soft);
+}
+.register-row:hover .register-title,
+.register-row:focus-within .register-title {
+  color: var(--bone);
+}
+.register-row:hover .register-text,
+.register-row:focus-within .register-text {
+  color: rgba(246, 245, 241, 0.72);
+}
+.register-row:hover .register-arrow,
+.register-row:focus-within .register-arrow {
+  color: var(--bone);
+  transform: translateX(8px);
+}
+
+/* ---------- Nav ---------- */
+
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  height: 1.5px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.28s ease;
+}
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* ---------- Forms: ruled slips, not boxes ---------- */
+
+.field {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid var(--hairline-strong);
+  background: transparent;
+  padding: 0.55rem 0;
+  font-size: 15.5px;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.25s ease;
+}
+.field::placeholder {
+  color: #6b7180;
+}
+.field:focus {
+  border-color: var(--claret);
+}
+
+.field--inverse {
+  border-color: rgba(246, 245, 241, 0.28);
+  color: var(--bone);
+}
+.field--inverse::placeholder {
+  color: rgba(246, 245, 241, 0.62);
+}
+.field--inverse:focus {
+  border-color: var(--claret-bright);
+}
+
+/* ---------- Motion: one authored moment ---------- */
+
+@keyframes letter-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html.js .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.9s var(--ease-sheet), transform 0.9s var(--ease-sheet);
+    transition-delay: var(--reveal-delay, 0s);
+  }
+  html.js .reveal.is-in {
+    opacity: 1;
+    transform: none;
+  }
+
+  .letter-in {
+    animation: letter-in 0.7s var(--ease-sheet) both;
+  }
+
+  /* A face that is not on top does not animate its own arrival. */
+  html.js .sheet-face:not([data-active="true"]) .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@tailwind utilities;

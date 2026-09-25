@@ -1,21 +1,37 @@
-import Link from 'next/link'
-import React from 'react'
-import {FaUsers} from 'react-icons/fa'
-const LawareaCard = () => {
-  return (
-    <div className='  py-5 md:py-auto w-full  md:w-[400px] flex 
-    flex-col items-center justify-center gap-7
-    border-[0.3px] border-golden md:py-12 shadow-sm'>
-    <div className='text-6xl text-golden'><FaUsers/></div>
-    <div className="w-[20%] h-[0.5px] bg-golden "></div>
-    <h1 className='text-2xl text-secondary '>Criminal Law</h1>
-    <p className='text-base text-center text-secondary'>
-      Church Street Solicitors Ltd provides reliable legal services across
-      the UK. Our team of defence
-    </p>
-    <Link href={"#"} className='text-red-900'>read more</Link>
-  </div>
-  )
-}
+import Link from "next/link";
+import React from "react";
 
-export default LawareaCard
+const LawareaCard = ({
+  title = "Criminal Law",
+  text,
+  href = "/area-of-practice",
+  index = 0,
+}) => {
+  return (
+    <Link
+      href={href}
+      className="register-row grid grid-cols-[2.75rem_minmax(0,1fr)_auto] items-baseline gap-x-4 gap-y-3 border-t border-ink/12 py-6 md:grid-cols-[4rem_minmax(0,1.05fr)_minmax(0,1.15fr)_auto] md:gap-x-8 md:py-8"
+    >
+      <span className="register-index tnum pt-1 text-[10.5px] uppercase tracking-caps text-claret">
+        {String(index + 1).padStart(2, "0")}
+      </span>
+
+      <h3 className="register-title font-display text-[25px] font-medium leading-[1.05] tracking-display text-ink md:text-[32px]">
+        {title}
+      </h3>
+
+      <span
+        aria-hidden
+        className="register-arrow col-start-3 row-start-1 text-[16px] leading-none text-claret md:col-start-4"
+      >
+        →
+      </span>
+
+      <p className="register-text col-start-2 col-end-4 max-w-[34rem] text-[15px] leading-[1.7] text-slatebody md:col-start-3 md:col-end-4 md:row-start-1">
+        {text}
+      </p>
+    </Link>
+  );
+};
+
+export default LawareaCard;
