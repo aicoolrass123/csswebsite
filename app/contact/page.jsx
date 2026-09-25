@@ -63,13 +63,13 @@ const details = [
 const emergency = [
   {
     name: "Dr David Akin-Samuels",
-    role: "Solicitor · LL.B (Hons); Pg.Dip.(Law); MA; PhD.",
+    role: "Director · LL.B (Hons); Pg.Dip.(Law); MA; PhD.",
     display: "07958 60 44 47",
     tel: "07958604447",
   },
   {
     name: "Kevwe Omoniruvbe",
-    role: "Solicitor · BSc (Hons); MILR; Pg.Dip.(Law)",
+    role: "Director · BSc (Hons); MILR; Pg.Dip.(Law); MA",
     display: "07958 55 7098",
     tel: "07958557098",
   },

@@ -107,7 +107,7 @@ Foot: Church Street Solicitors · Established June 2015 | SRA-regulated practice
 ### Face II — The register · What we handle
 
 - Kicker: Fixed fees, agreed in writing before we begin.
-- Headline: **Solicitors you can trust with your future**
+- Headline: **Six disciplines, one professional standard — always on your side**
 - Subtitle: Direct access to the solicitor handling your case, honest timelines, and payment by instalments.
 
 The register · six disciplines:
@@ -194,8 +194,8 @@ Letters from clients (three, rotated):
 - Running head: About us
 - Aside: 12 Church Street · Stratford, East London
 - Folio: Folio · About
-- Title: **We advise you the way it is**
-- Lead: Church Street Solicitors Ltd is based in Stratford, East London. The firm started operations in June 2015 with the sole aim of providing our clients with high quality legal services, in plain English, at fees agreed in writing.
+- Title: **We advise you legally, and the way it is**
+- Lead: Church Street Solicitors Ltd is based in Stratford, London E15, in East London. The firm started operations in June 2015 with the sole aim of providing our clients with high quality legal services, in plain English, at fees agreed in writing.
 
 ### The firm
 
@@ -300,7 +300,7 @@ If you are still not satisfied:
 
 - Running head: The register
 - Aside: 6 disciplines · Fees in writing
-- Title: **Six disciplines, one standard: your side**
+- Title: **Six disciplines, one professional standard — always on your side**
 - Lead: From Home Office applications to the Crown Court, from tenancy disputes to tribunal claims — you speak directly to the solicitor handling your matter.
 
 1. **Immigration** — Visas, settlement, citizenship, asylum and Home Office appeals with a high success record.
@@ -336,7 +336,7 @@ Commitments:
 
 **Page metadata**
 - Title: Our team | Church Street Solicitors, Stratford
-- Description: Meet the team at Church Street Solicitors, Stratford: David Akin-Samuels, Kweve Omoniruvbe, Solomon Airhuoyo-Obazee and John-Maurice Ngunza.
+- Description: Meet the team at Church Street Solicitors, Stratford: David Akin-Samuels, Oghenekevwe Omoniruvbe, Ted Solomon Airuhoyo, Lawrence Ayeni and John M. Ngunza.
 
 ### Page head
 
@@ -344,24 +344,25 @@ Commitments:
 - Aside: 12 Church Street · Stratford, East London
 - Folio: Folio · Team
 - Title: **The people on your side**
-- Lead: Four practitioners at one Stratford office, and a named solicitor with conduct of every matter. The person handling your case is the person you speak to.
+- Lead: Five practitioners at one Stratford office, and a named solicitor with conduct of every matter. The person handling your case is the person you speak to.
 
 ### The team
 
 - Running head: The team
-- Aside: Four practitioners · One office
-- Title: **You will know who is handling your matter**
+- Aside: Five practitioners · One office
+- Title: **You will know who is handling your case**
 - Lead: Everything the firm does happens at 12 Church Street. From the first meeting to the last, your matter is run by the solicitor with conduct of it.
 
-1. **David Akin-Samuels** — Solicitor — LL.B (Hons); Pg.Dip.(Law); MA; PhD. — Immigration, family, crime, housing and civil litigation. (Plate I)
-2. **Kweve Omoniruvbe** — Solicitor — BSc. (Hons); MILR; Pg.Dip.(Law) — Immigration, crime, housing and employment. (Plate II)
-3. **Solomon Airhuoyo-Obazee** — Chartered Legal Executive — LL.B (Hons); Pg. Dip. (Law); FCILEx. (Law) (Plate III)
-4. **John-Maurice Ngunza** — Case Worker — LL.B (Hons); ACIlex; AfiCB; PM.Dip (Plate IV)
+1. **David Akin-Samuels** (known as DAS) — Director — LL.B (Hons); Pg.Dip.(Law); MA; PhD. — Immigration, family, crime, housing and civil litigation. (Plate I)
+2. **Oghenekevwe Omoniruvbe** (known as Kevwe) — Director — BSc. (Hons); MILR; Pg.Dip.(Law); MA — Immigration, crime, housing and employment. (Plate II)
+3. **Ted Solomon Airuhoyo** (known as PAS) — Solicitor — LL.B (Hons); Pg. Dip. (Law); FCILEx. (Law) (Plate III)
+4. **Lawrence Ayeni** (known as Ollie) — Solicitor — LL.B (Hons); Pg.Dip.(Law) (Plate IV — portrait to follow)
+5. **John M. Ngunza** (known as John) — Caseworker — LL.B (Hons); ACIlex; AfiCB; PM.Dip (Plate V)
 
 ### Page foot
 
 - Kicker: Our team · Church Street Solicitors
-- Note: Four practitioners · One office
+- Note: Five practitioners · One office
 - Secondary button: Our fees
 
 ---

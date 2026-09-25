@@ -478,7 +478,7 @@ const Complaints = () => (
 export const metadata = {
   title: "About us | Church Street Solicitors, Stratford",
   description:
-    "Church Street Solicitors Ltd is based in Stratford, East London. Established June 2015. Fixed fees, payment by instalments, strict confidentiality, and our full complaints policy.",
+    "Church Street Solicitors Ltd is based in Stratford, London E15 (East London). Established June 2015. Fixed fees, payment by instalments, strict confidentiality, and our full complaints policy.",
 };
 
 const AboutUs = () => (
@@ -487,8 +487,8 @@ const AboutUs = () => (
       runningHead="About us"
       aside="12 Church Street · Stratford, East London"
       folio="Folio · About"
-      title="We advise you the way it is"
-      lead="Church Street Solicitors Ltd is based in Stratford, East London. The firm started operations in June 2015 with the sole aim of providing our clients with high quality legal services, in plain English, at fees agreed in writing."
+      title="We advise you legally, and the way it is"
+      lead="Church Street Solicitors Ltd is based in Stratford, London E15, in East London. The firm started operations in June 2015 with the sole aim of providing our clients with high quality legal services, in plain English, at fees agreed in writing."
     />
     <Story />
     <WhyChoose />

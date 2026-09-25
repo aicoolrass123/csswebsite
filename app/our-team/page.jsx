@@ -7,34 +7,44 @@ import TeamCard from "@/components/TeamCard";
 export const metadata = {
   title: "Our team | Church Street Solicitors, Stratford",
   description:
-    "Meet the team at Church Street Solicitors, Stratford: David Akin-Samuels, Kweve Omoniruvbe, Solomon Airhuoyo-Obazee and John-Maurice Ngunza.",
+    "Meet the team at Church Street Solicitors, Stratford: David Akin-Samuels, Oghenekevwe Omoniruvbe, Ted Solomon Airuhoyo, Lawrence Ayeni and John M. Ngunza.",
 };
 
 const team = [
   {
     name: "David Akin-Samuels",
+    knownAs: "DAS",
     quals: "LL.B (Hons); Pg.Dip.(Law); MA; PhD.",
-    role: "Solicitor",
+    role: "Director",
     areas: "Immigration, family, crime, housing and civil litigation.",
     plate: "/plates/team-david-akin-samuels.jpg",
   },
   {
-    name: "Kweve Omoniruvbe",
-    quals: "BSc. (Hons); MILR; Pg.Dip.(Law)",
-    role: "Solicitor",
+    name: "Oghenekevwe Omoniruvbe",
+    knownAs: "Kevwe",
+    quals: "BSc. (Hons); MILR; Pg.Dip.(Law); MA",
+    role: "Director",
     areas: "Immigration, crime, housing and employment.",
     plate: "/plates/team-kevwe-omoniruvbe.jpg",
   },
   {
-    name: "Solomon Airhuoyo-Obazee",
+    name: "Ted Solomon Airuhoyo",
+    knownAs: "PAS",
     quals: "LL.B (Hons); Pg. Dip. (Law); FCILEx. (Law)",
-    role: "Chartered Legal Executive",
+    role: "Solicitor",
     plate: "/plates/team-solomon-airhuoyo-obazee.jpg",
   },
   {
-    name: "John-Maurice Ngunza",
+    name: "Lawrence Ayeni",
+    knownAs: "Ollie",
+    quals: "LL.B (Hons); Pg.Dip.(Law)",
+    role: "Solicitor",
+  },
+  {
+    name: "John M. Ngunza",
+    knownAs: "John",
     quals: "LL.B (Hons); ACIlex; AfiCB; PM.Dip",
-    role: "Case Worker",
+    role: "Caseworker",
     plate: "/plates/team-john-maurice-ngunza.jpg",
   },
 ];
@@ -48,7 +58,7 @@ const OurTeam = () => (
       aside="12 Church Street · Stratford, East London"
       folio="Folio · Team"
       title="The people on your side"
-      lead="Four practitioners at one Stratford office, and a named solicitor with conduct of every matter. The person handling your case is the person you speak to."
+      lead="Five practitioners at one Stratford office, and a named solicitor with conduct of every matter. The person handling your case is the person you speak to."
     />
 
     <section aria-label="The team" className="bg-parchment py-16 md:py-24">
@@ -56,8 +66,8 @@ const OurTeam = () => (
         <Reveal>
           <SectionHead
             runningHead="The team"
-            aside="Four practitioners · One office"
-            title="You will know who is handling your matter"
+            aside="Five practitioners · One office"
+            title="You will know who is handling your case"
             lead="Everything the firm does happens at 12 Church Street. From the first meeting to the last, your matter is run by the solicitor with conduct of it."
           />
 
@@ -72,7 +82,7 @@ const OurTeam = () => (
 
     <InsideFoot
       kicker="Our team · Church Street Solicitors"
-      note="Four practitioners · One office"
+      note="Five practitioners · One office"
     />
   </main>
 );

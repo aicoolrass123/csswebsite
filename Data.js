@@ -17,7 +17,7 @@ export const slideTab = [
     id: 2,
     section: "Fees",
     kicker: "Fixed fees, agreed in writing before we begin.",
-    title: "Solicitors you can trust with your future",
+    title: "Six disciplines, one professional standard — always on your side",
     subtitle:
       "Direct access to the solicitor handling your case, honest timelines, and payment by instalments.",
     caption: "Fees fixed in writing before any work begins.",
@@ -34,7 +34,7 @@ export const slideTab = [
     title: "A full-service practice on your side",
     subtitle:
       "From Home Office applications to the Crown Court, from tenancy disputes to tribunal claims.",
-    caption: "Six disciplines, one standard, since June 2015.",
+    caption: "Six disciplines, one professional standard, since June 2015.",
     imgurl: "/images/slide3.png",
     ctaPrimary: "Explore practice areas",
     ctaPrimaryHref: "/area-of-practice",

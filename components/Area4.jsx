@@ -12,7 +12,7 @@ const Area4 = ({ href = "/contact" }) => {
           <SectionHead
             runningHead="The register"
             aside={`${practiceAreas.length} disciplines · Fees in writing`}
-            title="Six disciplines, one standard: your side"
+            title="Six disciplines, one professional standard — always on your side"
             lead="From Home Office applications to the Crown Court, from tenancy disputes to tribunal claims — you speak directly to the solicitor handling your matter."
           />
         </Reveal>
