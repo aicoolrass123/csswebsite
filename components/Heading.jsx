@@ -111,11 +111,11 @@ const Heading = () => {
         >
           <Link
             href="/"
-            className="shrink-0 leading-none"
+            className="min-w-0 leading-none"
             aria-label="Church Street Solicitors — home"
           >
             <span
-              className={`font-display block whitespace-nowrap leading-[0.95] tracking-display transition-all duration-500 ${primaryText} ${
+              className={`font-display block overflow-hidden text-ellipsis whitespace-nowrap leading-[0.95] tracking-display transition-all duration-500 ${primaryText} ${
                 scrolled ? "text-[18px] md:text-[20px]" : "text-[18px] md:text-[30px]"
               }`}
             >
@@ -157,7 +157,7 @@ const Heading = () => {
             </ul>
           </nav>
 
-          <div className="flex items-center gap-3">
+          <div className="flex shrink-0 items-center gap-3">
             <a
               href="tel:02082210233"
               className={`hidden font-display text-[16px] tracking-display transition-colors xl:block ${primaryText} ${
