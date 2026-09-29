@@ -356,7 +356,7 @@ Commitments:
 1. **David Akin-Samuels** (known as DAS) — Director — LL.B (Hons); Pg.Dip.(Law); MA; PhD. — Immigration, family, crime, housing and civil litigation. (Plate I)
 2. **Oghenekevwe Omoniruvbe** (known as Kevwe) — Director — BSc. (Hons); MILR; Pg.Dip.(Law); MA — Immigration, crime, housing and employment. (Plate II)
 3. **Ted Solomon Airuhoyo** (known as PAS) — Solicitor — LL.B (Hons); Pg. Dip. (Law); FCILEx. (Law) (Plate III)
-4. **Lawrence Ayeni** (known as Ollie) — Solicitor — LL.B (Hons); Pg.Dip.(Law) (Plate IV — portrait to follow)
+4. **Lawrence Ayeni** (known as Ollie) — Solicitor — LL.B (Hons); Pg.Dip.(Law) (Plate IV)
 5. **John M. Ngunza** (known as John) — Caseworker — LL.B (Hons); ACIlex; AfiCB; PM.Dip (Plate V)
 
 ### Page foot

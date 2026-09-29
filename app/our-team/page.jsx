@@ -39,6 +39,7 @@ const team = [
     knownAs: "Ollie",
     quals: "LL.B (Hons); Pg.Dip.(Law)",
     role: "Solicitor",
+    plate: "/plates/team-lawrence-ayeni.jpg",
   },
   {
     name: "John M. Ngunza",
