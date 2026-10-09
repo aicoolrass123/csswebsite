@@ -119,12 +119,12 @@ The site is a printed legal paper, not a web page: one sheet folded into four fa
 
 The register is sober and unadorned. Claret is the one wet ink and it is spent sparingly: the primary action, the numerals, the drawn rule. Light and dark are not decoration but the two sides of the paper — the lead and the notice print on ink, the register and the letters print on stock — so the reader feels the sheet turn rather than a scroll restart.
 
-Density alternates deliberately. The register page is close-set and indexical; the letters page opens out around one portrait printed straight on the paper with its claret plate a hair out of register. Typography carries the authority that photography would otherwise have to borrow.
+Density alternates deliberately. The register page is close-set and indexical; the letters page opens out around one portrait printed straight on the paper. Typography carries the authority that photography would otherwise have to borrow.
 
 **Key Characteristics:**
 - One sheet, four faces, turned; equal page heights; a folio rail at the foot of every face.
 - Two inks only — claret and ink — laid on parchment, paper, bone or linen stock.
-- Duotone plates with real halftone screening, printed as rasters, never as CSS filters.
+- Photographs in natural colour, graded once as rasters (never CSS filters) so they share one look: true skin tones, shadows settling towards the ink. Claret never touches a photograph.
 - Rules, folios and gutters instead of borders, cards and shadows.
 - The phone number, the hours and the address never leave the foot of the sheet.
 
@@ -134,11 +134,11 @@ A restrained two-ink press: one claret, one near-black ink, and four paper stock
 
 ### Primary
 - **Claret** (#7B2130): the firm's wet ink. Primary actions, the folio numeral, the drawn rule under the folio line, the ink-fill hover on register rows.
-- **Claret Bright** (#9B3348): claret at working strength on dark stock — hover states on ink grounds, the folio numeral in a dark rail, the misregistered plate in a cut-out.
+- **Claret Bright** (#9B3348): claret at working strength on dark stock — hover states on ink grounds, the folio numeral in a dark rail.
 - **Claret Deep** (#5A1622): the darkest claret, used inside the plate gradient map and as a settled panel tone on the coupon.
 
 ### Neutral
-- **Ink** (#0B1120): the night edition. Ground for the lead face, the notice face, the masthead, the band, the rail and the footer; also the ink plate in every duotone.
+- **Ink** (#0B1120): the night edition. Ground for the lead face, the notice face, the masthead, the band, the rail and the footer; also the floor the shadows of every plate settle towards.
 - **Ink Deep** (#070B14): recessed ground behind a plate before it paints.
 - **Ink Soft** (#141C2E): the tinted panel the callback form sits on.
 - **Parchment** (#F6F5F1): the default stock — body background, the letters face, text on ink.
@@ -203,8 +203,8 @@ Assemblies are built from two primitives: the **rule** (a horizontal hairline wi
 - **Buttons** — square, uppercase, 11px, tracking 0.16em, 16px vertical padding. Primary is claret fill with parchment text, hover moving to ink on light stock and to parchment on ink. Secondary is a 1px hairline outline that goes to full strength on hover. There is no third ornament: no arrow, no icon, no gradient.
 - **Folio tab** — a text button in the rail: numeral in claret, name in parchment, with a 2px current-page underline drawn from the left by `transform: scaleX`.
 - **Fold tab** — the crease at the right edge of a face, 52px wide, with a vertical `writing-mode: vertical-rl` caption naming the page it turns to, and a gradient of ink reading as the folded edge catching light.
-- **Plate** — a raster duotone at `object-cover` inside a square frame, plus two halftone screens (ink and claret) drawn in CSS, offset 1.5px from each other and multiplied, so the overlap makes a third value. The rasters ship pre-toned from `public/plates/`; the page never tints a photograph at runtime.
-- **Plate cut-out** — a subject with alpha printed unaided on the stock, with its claret plate offset behind it as a misregistered silhouette. No frame.
+- **Plate** — a natural-colour raster at `object-cover` inside a square frame. The rasters ship pre-graded from `public/plates/`, made by `scripts/print-plate.py` from the original photograph (levels set on brightness so skin keeps its hue, saturation eased slightly, black lifted towards the ink); the page never tints a photograph at runtime. An optional ink halftone screen (`screen` prop) exists but is off by default — over colour it reads as a mesh.
+- **Plate cut-out** — a subject with alpha printed unaided on the stock. No frame.
 - **Register row** — a full-bleed link row: claret numeral, Bodoni title over a Spectral blurb, arrow at the right edge. Hover wipes ink across the row from the left and reverses the text to parchment.
 - **Field** — a ruled slip: transparent, no border except a bottom hairline, 15.5px text, placeholder at 4.5:1 or better, claret caret on light stock and claret-bright on ink. The inverse variant lightens the hairline and the text.
 - **Face foot** — the running foot of a page: a hairline with the kicker at the left, a note in the middle, and `Folio X / IV` at the right. It never carries a heading.
@@ -215,14 +215,14 @@ Assemblies are built from two primitives: the **rule** (a horizontal hairline wi
 
 **Do**
 - Do let a rule, a folio or a gutter separate things before reaching for a border or a card.
-- Do print photographs as duotone plates with a visible halftone screen, on the stock that suits the page.
+- Do print photographs in their own colour, graded with `scripts/print-plate.py`. Don't tint them claret (it turns skin pink) and don't convert them to black and white — the firm wants its people shown as they are.
 - Do keep the phone number, the hours and the address on every face, at the foot of the sheet.
 - Do alternate density: a close-set indexical page earns a quiet, open one.
 - Do set display type large and tight, and balance it so no line is widowed at the end.
 - Do keep every 10px rubric legible on its own stock.
 
 **Don't**
-- Don't introduce a third ink, a gradient other than the duotone's, or a tint that is not one of the four stocks.
+- Don't introduce a third ink, a gradient, or a tint that is not one of the four stocks.
 - Don't put a card, a pill, a rounded panel or a drop shadow on anything.
 - Don't animate a layout property; the turn, the rule and the reveal move by transform or opacity only.
 - Don't add a kicker or eyebrow above a heading; a running foot at the page's foot is the world's own device.

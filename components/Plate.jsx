@@ -3,10 +3,11 @@ import Image from "next/image";
 /**
  * A plate: a photograph printed on the sheet.
  *
- * The duotone — ink through claret to paper, with the claret plate set a
- * hair out of register — is made once in public/plates/, so the press run
- * costs the browser nothing. The halftone screen is drawn in CSS so it
- * stays crisp at every size the plate is placed at.
+ * Natural colour, graded once in public/plates/ by scripts/print-plate.py
+ * so every photograph shares one look and the browser does no work. The
+ * optional halftone screen is drawn in CSS so it stays crisp at every size
+ * the plate is placed at; it is off by default because over colour it
+ * reads as a mesh across the face.
  *
  * cut — a cut-out subject, printed unaided on the sheet rather than in a box.
  */
@@ -14,7 +15,7 @@ const Plate = ({
   src,
   alt = "",
   cut = false,
-  screen = true,
+  screen = false,
   priority = false,
   sizes = "(min-width: 1024px) 40vw, 100vw",
   className = "",
@@ -30,7 +31,7 @@ const Plate = ({
           fill
           priority={priority}
           sizes={sizes}
-          className={`plate-cut__img object-contain ${imgClassName}`}
+          className={`object-contain ${imgClassName}`}
           style={{ objectPosition }}
         />
       </span>
@@ -45,15 +46,10 @@ const Plate = ({
         fill
         priority={priority}
         sizes={sizes}
-        className={`plate__img object-cover ${imgClassName}`}
+        className={`object-cover ${imgClassName}`}
         style={{ objectPosition }}
       />
-      {screen ? (
-        <>
-          <span aria-hidden className="plate__screen plate__screen--ink" />
-          <span aria-hidden className="plate__screen plate__screen--claret" />
-        </>
-      ) : null}
+      {screen ? <span aria-hidden className="plate__screen" /> : null}
     </span>
   );
 };

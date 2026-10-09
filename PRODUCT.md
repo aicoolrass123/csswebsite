@@ -32,7 +32,7 @@ The name "Church Street Solicitors" and the existing logo asset (public/images/l
 
 ## Evidence on Hand
 
-public/images/ — four hero slides (slide1–slide4), office and team photography (Solicitors-East.png, testimonial.png, aboutus1.jpg, About-Us-2.png, Office.png, marianimage.jpg), the logo, and an area6.jpg background. public/plates/ — three derived duotone plates (lead.jpg from slide1.jpg, office.jpg from Office.png, client.png from testimonial.png), each carrying embedded provenance. Data.js holds the four hero slide records, the six practice-area blurbs, the wire tape and the four faces of the edition. Three real testimonials with attribution (Femi Sotonwa; two from "Lisa") live in components/Testimonial.jsx.
+public/images/ — four hero slides (slide1–slide4), office and team photography (Solicitors-East.png, testimonial.png, aboutus1.jpg, About-Us-2.png, Office.png, marianimage.jpg), the logo, and an area6.jpg background. public/plates/ — natural-colour plates graded by scripts/print-plate.py, including (lead.jpg from slide1.jpg, office.jpg from Office.png, client.png from testimonial.png), each carrying embedded provenance. Data.js holds the four hero slide records, the six practice-area blurbs, the wire tape and the four faces of the edition. Three real testimonials with attribution (Femi Sotonwa; two from "Lisa") live in components/Testimonial.jsx.
 
 ## Product Principles
 

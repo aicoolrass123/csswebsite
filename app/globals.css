@@ -109,10 +109,10 @@ select {
   text-indent: -0.46em;
 }
 
-/* ---------- Plates: two-colour printing ----------
-   The duotone is baked into public/plates/ — ink through claret to paper,
-   the claret plate a hair out of register. What remains here is the screen,
-   which has to be drawn at the size it is placed at to stay crisp.
+/* ---------- Plates ----------
+   Photographs print in their own colour, graded once into public/plates/
+   by scripts/print-plate.py: true skin tones, shadows settling towards the
+   ink. Claret never touches a photograph.
    ------------------------------------------------------------------ */
 
 .plate,
@@ -127,33 +127,17 @@ select {
   background: var(--ink-deep);
 }
 
-.plate__img,
-.plate-cut__img {
-  filter: saturate(1.04) contrast(1.02);
-}
-
-/* The halftone screen: two passes, a hair out of true, so the overlap
-   makes a third value neither ink owns. */
+/* A fine ink screen, light enough to read as paper tooth rather than
+   a mesh laid over the face. */
 .plate__screen {
   position: absolute;
-  inset: -2px;
+  inset: 0;
   z-index: 2;
+  background-image: radial-gradient(rgba(7, 11, 20, 0.9) 0.55px, transparent 0.75px);
   background-size: 3px 3px;
+  mix-blend-mode: multiply;
+  opacity: 0.12;
   pointer-events: none;
-}
-.plate__screen--ink {
-  background-image: radial-gradient(rgba(7, 11, 20, 0.95) 0.7px, transparent 0.8px);
-  mix-blend-mode: multiply;
-  opacity: 0.34;
-}
-.plate__screen--claret {
-  background-image: radial-gradient(
-    rgba(155, 51, 72, 0.95) 0.7px,
-    transparent 0.8px
-  );
-  background-position: 1.5px 1.5px;
-  mix-blend-mode: multiply;
-  opacity: 0.34;
 }
 
 .plate-frame {
