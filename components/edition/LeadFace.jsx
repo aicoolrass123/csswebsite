@@ -24,13 +24,31 @@ const LeadFace = ({ face, onTurn }) => {
 
   return (
     <FaceShell tone="ink">
-      <div className="grid flex-1 gap-9 lg:grid-cols-12 lg:gap-0">
-        <div className="flex min-w-0 flex-col lg:col-span-7 lg:pr-16">
+      <div className="relative grid flex-1 gap-9 lg:grid-cols-12 lg:gap-0">
+        {/* Small screens: the lead plate prints full-bleed behind the lead
+            copy, and an ink scrim keeps the type up. On the staged sheet
+            the plate takes its own column. */}
+        <div
+          aria-hidden
+          className="absolute -inset-x-5 -top-7 bottom-0 md:-inset-x-8 md:-top-8 lg:hidden"
+        >
+          <Plate
+            src="/plates/lead.jpg"
+            alt=""
+            priority
+            sizes="100vw"
+            className="absolute inset-0 h-full w-full"
+            objectPosition="62% 26%"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-ink/85 via-ink/70 to-ink" />
+        </div>
+
+        <div className="relative flex min-w-0 flex-col lg:col-span-7 lg:pr-16">
           <h1 className="balance font-display text-[clamp(2.7rem,5.8vw,5.2rem)] font-medium leading-[0.96] tracking-display text-parchment">
             {item.title}
           </h1>
 
-          <p className="mt-7 max-w-[35rem] text-[17.5px] leading-[1.65] text-parchment/70 md:text-[19.5px]">
+          <p className="mt-7 max-w-[35rem] text-[17.5px] leading-[1.65] text-parchment/75 md:text-[19.5px] lg:text-parchment/70">
             {item.subtitle}
           </p>
 
@@ -43,7 +61,7 @@ const LeadFace = ({ face, onTurn }) => {
             </Link>
             <Link
               href={item.ctaSecondaryHref}
-              className="border border-parchment/25 px-7 py-[1.15rem] text-center text-[11px] font-semibold uppercase tracking-caps text-parchment/85 transition hover:border-parchment hover:text-parchment"
+              className="border border-parchment/25 bg-ink px-7 py-[1.15rem] text-center text-[11px] font-semibold uppercase tracking-caps text-parchment/85 transition hover:border-parchment hover:text-parchment"
             >
               {item.ctaSecondary}
             </Link>
@@ -57,7 +75,7 @@ const LeadFace = ({ face, onTurn }) => {
           </div>
         </div>
 
-        <div className="flex flex-col lg:col-span-5 lg:border-l lg:border-parchment/15 lg:pl-12">
+        <div className="hidden flex-col lg:col-span-5 lg:flex lg:border-l lg:border-parchment/15 lg:pl-12">
           <div className="relative aspect-[4/3] w-full sm:aspect-[16/9] lg:aspect-auto lg:min-h-0 lg:flex-1">
             <Plate
               src="/plates/lead.jpg"
