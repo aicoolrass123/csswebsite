@@ -67,7 +67,20 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col gap-4 border-t border-parchment/10 pt-6 text-[12px] text-parchment/50 md:flex-row md:items-center md:justify-between">
+        <div className="mt-10 flex md:justify-end">
+          {/* Yoshki verifies the live domain registered with the SRA. Keep the badge at its supplied size. */}
+          <iframe
+            title="Solicitors Regulation Authority — verify our regulated status"
+            src="https://cdn.yoshki.com/iframe/55849r.html"
+            width="275"
+            height="163"
+            scrolling="no"
+            allowTransparency={true}
+            className="block h-[163px] w-[275px] shrink-0 border-0 bg-transparent p-0"
+          />
+        </div>
+
+        <div className="mt-8 flex flex-col gap-4 border-t border-parchment/10 pt-6 text-[12px] text-parchment/50 md:flex-row md:items-center md:justify-between">
           <p>SRA-regulated practice · Confidentiality and GDPR assured</p>
           <p className="md:text-center">
             Set in Bodoni and Spectral · Church Street Solicitors, established
